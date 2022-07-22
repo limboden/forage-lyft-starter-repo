@@ -106,7 +106,7 @@ class TestGlissade(unittest.TestCase):
         last_service_date = datetime.today().date()
         current_mileage = 0
         last_service_mileage = 0
-        sensors = [0.4, 0.5, 0.9, 0.8]
+        sensors = [0.8, 0.8, 0.8, 0.8]
 
         car = CarFactory.create_glissade(CarFactory, today, last_service_date, current_mileage, last_service_mileage, sensors)
         self.assertTrue(car.needs_service())
@@ -116,7 +116,7 @@ class TestGlissade(unittest.TestCase):
         last_service_date = datetime.today().date()
         current_mileage = 0
         last_service_mileage = 0
-        sensors = [0.0, 0.4, 0.2, 0.1]
+        sensors = [0.0, 0.4, 0.2, 1.0]
 
         car = CarFactory.create_glissade(CarFactory, today, last_service_date, current_mileage, last_service_mileage, sensors)
         self.assertFalse(car.needs_service())
@@ -221,7 +221,7 @@ class TestRorschach(unittest.TestCase):
         last_service_date = datetime.today().date()
         current_mileage = 0
         last_service_mileage = 0
-        sensors = [0, 0, 1.0, 0]
+        sensors = [0, 1.0, 1.0, 1.0]
 
         car = CarFactory.create_rorschach(CarFactory, today, last_service_date, current_mileage, last_service_mileage, sensors)
         self.assertTrue(car.needs_service())
@@ -231,7 +231,7 @@ class TestRorschach(unittest.TestCase):
         last_service_date = datetime.today().date()
         current_mileage = 0
         last_service_mileage = 0
-        sensors = [0.7, 0.7, 0.8, 0.8]
+        sensors = [0.2, 0.7, 1, 1]
 
         car = CarFactory.create_rorschach(CarFactory, today, last_service_date, current_mileage, last_service_mileage, sensors)
         self.assertFalse(car.needs_service())
