@@ -1,6 +1,7 @@
-from car import Car
+from abc import abstractmethod
 
-class Servicable(Car):
+class Servicable():
+
+    @abstractmethod
     def needs_service(self):
-        return super().needs_service()
-
+        pass
